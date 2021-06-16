@@ -15,6 +15,11 @@
 # [AzureMlVersion] = 2
 
 name: pssdp_training_env
+
+channels:
+  - anaconda
+  - conda-forge
+
 dependencies:
   # The python interpreter version.
   # Currently Azure ML Workbench only supports 3.5.2 and later.
@@ -42,6 +47,3 @@ dependencies:
       - pandas
       - lightgbm
       - pip
-    channels:
-      - anaconda
-      - conda-forge
