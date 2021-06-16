@@ -6,7 +6,6 @@ from azureml.core.runconfig import RunConfiguration
 from ml_service.pipelines.load_sample_data import create_sample_data_csv
 from ml_service.util.attach_compute import get_compute
 from ml_service.util.env_variables import Env
-from ml_service.util.manage_environment import get_environment
 from azureml.core import Environment
 import os
 
@@ -28,14 +27,6 @@ def main():
         print("aml_compute:")
         print(aml_compute)
 
-    # Create a reusable Azure ML environment
-    #environment = get_environment(
-    #    aml_workspace,
-    #    e.aml_env_name,
-    #    conda_dependencies_file=e.aml_env_train_conda_dep_file,
-    #    create_new=e.rebuild_env,
-    # )  
-    
     run_config = RunConfiguration()
     run_config.environment = Environment.from_conda_specification(
         name="scoringenv",file_path="pssdp/conda_dependencies.yml"
