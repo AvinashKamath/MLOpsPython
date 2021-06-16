@@ -7,13 +7,14 @@ from pssdp.training.train import split_data, train_model, get_model_metrics
 
 """A set of simple unit tests for protecting against regressions in train.py"""
 
+
 def test_split_data():
     test_data = {
         'id': [0, 1, 2, 3, 4],
         'target': [0, 0, 1, 0, 1],
         'col1': [1, 2, 3, 4, 5],
         'col2': [2, 1, 1, 2, 1]
-        }
+    }
 
     data_df = pd.DataFrame(data=test_data)
     data = split_data(data_df)

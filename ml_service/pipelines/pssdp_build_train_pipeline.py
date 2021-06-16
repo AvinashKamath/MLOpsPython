@@ -29,14 +29,17 @@ def main():
         print(aml_compute)
 
     # Create a reusable Azure ML environment
-    environment = get_environment(
-        aml_workspace,
-        e.aml_env_name,
-        conda_dependencies_file=e.aml_env_train_conda_dep_file,
-        create_new=e.rebuild_env,
-    )  #
+    #environment = get_environment(
+    #    aml_workspace,
+    #    e.aml_env_name,
+    #    conda_dependencies_file=e.aml_env_train_conda_dep_file,
+    #    create_new=e.rebuild_env,
+    # )  
+    
     run_config = RunConfiguration()
-    run_config.environment = Environment.from_conda_specification(name="scoringenv",file_path="pssdp/conda_dependencies.yml")
+    run_config.environment = Environment.from_conda_specification(
+        name="scoringenv",file_path="pssdp/conda_dependencies.yml"
+    )
 
     if e.datastore_name:
         datastore_name = e.datastore_name

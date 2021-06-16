@@ -30,6 +30,7 @@ from sklearn import metrics
 from sklearn.model_selection import train_test_split
 import lightgbm
 
+
 def split_data(data_df):
     """Split a dataframe into training and validation datasets"""
     features = data_df.drop(['target', 'id'], axis=1)
@@ -37,7 +38,8 @@ def split_data(data_df):
     features_train, features_valid, labels_train, labels_valid = train_test_split(features, labels, test_size=0.2, random_state=0)
 
     train_data = lightgbm.Dataset(features_train, label=labels_train)
-    valid_data = lightgbm.Dataset(features_valid, label=labels_valid, free_raw_data=False)
+    valid_data = lightgbm.Dataset(
+        features_valid, label=labels_valid, free_raw_data=False)
 
     return (train_data, valid_data)
 
@@ -57,6 +59,7 @@ def train_model(data, parameters):
     
     return model
 
+
 def get_model_metrics(model, data):
     """Construct a dictionary of metrics for the model"""
     valid_data = data[1]   
@@ -65,6 +68,7 @@ def get_model_metrics(model, data):
     model_metrics = {"auc": (metrics.auc(fpr, tpr))}
     
     return model_metrics
+
 
 def main():
     """This method invokes the training functions for development purposes"""

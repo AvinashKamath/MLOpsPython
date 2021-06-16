@@ -33,7 +33,9 @@ from azureml.core.model import Model
 def init():
     global model
     # Get the path to the deployed model file and load it
-    model_path = Model.get_model_path(model_name='porto_seguro_safe_driver_model')
+    model_path = Model.get_model_path(
+        model_name='porto_seguro_safe_driver_model'
+        )
     model = joblib.load(model_path)
 
 
