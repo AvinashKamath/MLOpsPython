@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 # functions to test are imported from train.py
-from train import split_data, train_model, get_model_metrics
+from pssdp.training.train import split_data, train_model, get_model_metrics
 
 """A set of simple unit tests for protecting against regressions in train.py"""
 
