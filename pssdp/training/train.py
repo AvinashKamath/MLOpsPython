@@ -48,8 +48,7 @@ def split_data(data_df):
 def train_model(data, parameters):
     """Train a model with the given datasets and parameters"""
     # The object returned by split_data is a tuple.
-    # Access train_data with data[0] and valid_data with data[1]
-    
+    # Access train_data with data[0] and valid_data with data[1]    
     train_data = data[0]
     valid_data = data[1]
     model = lightgbm.train(parameters,
@@ -97,6 +96,7 @@ def main():
     
     # Print the resulting metrics for the model
     print(model_metrics)
+
 
 if __name__ == '__main__':
     main()
