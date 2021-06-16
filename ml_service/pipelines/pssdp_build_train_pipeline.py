@@ -7,6 +7,7 @@ from ml_service.pipelines.load_sample_data import create_sample_data_csv
 from ml_service.util.attach_compute import get_compute
 from ml_service.util.env_variables import Env
 from ml_service.util.manage_environment import get_environment
+from azureml.core import Environment
 import os
 
 
@@ -35,7 +36,7 @@ def main():
         create_new=e.rebuild_env,
     )  #
     run_config = RunConfiguration()
-    run_config.environment = environment
+    run_config.environment = Environment.from_conda_specification(name="scoringenv",file_path="pssdp/conda_dependencies.yml")
 
     if e.datastore_name:
         datastore_name = e.datastore_name
