@@ -1,8 +1,8 @@
 # Pipeline template to run linting, unit tests with code coverage, and publish the results.
 steps:
 
-- script: python -m pip install --upgrade pip lightgbm
-  displayName: 'Install tools'
+- script: python -m pip install lightgbm
+  displayName: 'Install lightgbm'
 
 - script: |   
    flake8 --output-file=lint-testresults.xml --format junit-xml
