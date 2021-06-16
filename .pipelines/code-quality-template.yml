@@ -5,7 +5,7 @@ steps:
   displayName: 'Install lightgbm'
 
 - script: |   
-   flake8 --output-file=lint-testresults.xml --format junit-xml
+   flake8 "--ignore=E231" --output-file=lint-testresults.xml --format junit-xml
   displayName: 'Run lint tests'
 
 - script: |   
